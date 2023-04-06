@@ -251,3 +251,38 @@ function AppProfile() {
 ```
 
 https://legacy.reactjs.org/docs/handling-events.html
+
+## useState
+
+- 리액트에서는 이렇게 유아이와 밀접하게 관련있는 데이터는 `state` 라는 곳에 보관을 해줘야함.
+- 로컬변수를 아무리 만들어도 리액트는 변경이 됐는지 모름.
+
+- stateful한 value를 리턴한다. 즉, 변경이 가능한 value을 리턴함.
+  function도 리턴함. 이 value를 업데이트할 수 있는 함수를 리턴해준다
+
+- 배열의 첫번째 아이템 : 초기값
+- 배열 두번째 : 상태를 업데이트 할 수 있는 함수가 리턴
+
+```js
+const [count, setCount] = useState(0);
+  return (
+    <div className="counter">
+      <span className="number">{count}</span>
+      <button
+        className="button"
+        onClick={() => {
+          //setCount에 지금 가지고 있는 count  +1
+          setCount(count + 1);
+        }})
+```
+
+- count 변수는 const에 할당이 되었기 때문에 변경이 불가능하다.
+
+- count 값이 set 될때마다 리액트가 자동적으로 카운터라는 함수를 다시 호출해줌.
+- 반환되는 리턴에는 현재 count값이 들어감으로 전체적으로 업데이트됨.
+
+- 중요: count에 전달되는 prop이 있으면 그 Prop이 변경되거나 내부에서 가지고있는 useState 상태가 변경이 되면 -> setCount를 호출하면 내부상태가 변경되고, 변경될때바다 변경된 해당 컴포넌트 함수 전체를 다시 호출함.
+
+- 가상의 Dom 요소를 사용해서 이전 Dom요소와 지금의 Dom요소에서 변경된 부분 즉 span만 업데이트 해줌.
+
+- 함수가 계속 호출되도 0으로 초기화 되지않는 이유는 유즈 스테이트 훅은 아무리 다시 호출해도 증가된 값을 기억함
