@@ -1,16 +1,18 @@
 .profile {
-  width: 300px;
+  width: 200px;
   text-align: center;
   padding: 1rem;
   background-color: palegreen;
   border-radius: 20px;
+  margin-bottom: 10px;
 
 }
 
 .phote {
-  width: 200px;
+  width: 100px;
   border-radius: 100%;
   box-shadow: 47px -2px 19px -17px rgba(0,0,0,0.57);
   -webkit-box-shadow: 47px -2px 19px -17px rgba(0,0,0,0.57);
   -moz-box-shadow: 47px -2px 19px -17px rgba(0,0,0,0.57);;
 }
+

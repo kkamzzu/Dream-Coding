@@ -127,7 +127,7 @@ https://cssgenerator.org/box-shadow-css-generator.html
 ## Making component
 
 - 이렇게 컴포넌트를 만들어 두면 외부상태와 연결되어있지않은 독립적인 컴포넌트가 완성됨.
-- 재사용 가능 언제든지 정의만 해줘도 여러개를 만들 수 있음.
+- 재사용 가능 언제든지 정의만 해줘도 여러개를 만들 수 있음.ㅎ
 
 ```js
 import React from "react";
@@ -145,4 +145,59 @@ export default function Profile() {
     </div>
   );
 }
+```
+
+## Making Props
+
+-> 재사용성이 낮음 `props`를 이용해서 재사용성 높이기
+
+- 컴포넌트의 속성으로 원하는 key와 value들을 명시하면 key와 value들이 props라는 객체로 전달됨.
+- component안에서는 `props.name`, `props.img`로 접근해서 외부(AppProfile.jsx)로 부터 전달된 속성을 ui로 표현해줌.
+
+- `props 오브젝트` 안에 img, name, title 을 받아올 것.
+- 이렇게 사용시 앞에 `props.` 생략가능.
+
+```js
+// Profile.jsx
+import React from "react";
+
+export default function Profile({ image, name, title }) {
+  return (
+    <div className="profile">
+      <img className="phote" src={image} alt="avatar" />
+      <h1>{name}</h1>
+      <p>{title}</p>
+    </div>
+  );
+}
+```
+
+```js
+//AppProfile.jsx
+import Profile from "./components/Profile";
+import "./App.css";
+
+function AppProfile() {
+  return (
+    <>
+      <Profile
+        image="https://images.unsplash.com/photo-1530281700549-e82e7bf110d6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80"
+        name="JOY"
+        title="친구네 강아지"
+      />
+      <Profile
+        image="https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=770&q=80"
+        name="KIKI"
+        title="우리집 강아지"
+      />
+      <Profile
+        image="https://images.unsplash.com/photo-1588943211346-0908a1fb0b01?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1035&q=80"
+        name="MONDAY"
+        title="친구네 강아지"
+      />
+    </>
+  );
+}
+
+export default AppProfile;
 ```
