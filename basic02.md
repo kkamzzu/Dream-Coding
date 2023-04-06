@@ -201,3 +201,23 @@ function AppProfile() {
 
 export default AppProfile;
 ```
+
+- isNew가 true인 경우에만 실행.
+
+```js
+{
+  isNew && <span className="new">New</span>;
+}
+
+//
+
+<Profile
+  image="https://images.unsplash.com/photo-1530281700549-e82e7bf110d6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80"
+  name="JOY"
+  title="친구네 강아지"
+  button="NEW"
+  isNew={true}
+/>;
+```
+
+- 어려우면 개발자 툴에 리액트를 보면서 어떤 prop이 들어왔는지 확인하기

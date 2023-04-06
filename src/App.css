@@ -1,18 +1,31 @@
 .profile {
+  position: relative;
   width: 200px;
   text-align: center;
   padding: 1rem;
   background-color: palegreen;
   border-radius: 20px;
   margin-bottom: 10px;
+  box-shadow: 47px -2px 19px -17px rgba(0,0,0,0.57);
+  -webkit-box-shadow: 47px -2px 19px -17px rgba(0,0,0,0.57);
+  -moz-box-shadow: 47px -2px 19px -17px rgba(0,0,0,0.57);
 
 }
 
 .phote {
   width: 100px;
   border-radius: 100%;
-  box-shadow: 47px -2px 19px -17px rgba(0,0,0,0.57);
-  -webkit-box-shadow: 47px -2px 19px -17px rgba(0,0,0,0.57);
-  -moz-box-shadow: 47px -2px 19px -17px rgba(0,0,0,0.57);;
+
 }
 
+.new {
+  position: absolute;
+  top: 10 ;
+  right: -10px;
+  width: 50px;
+  height: 20px;
+  background-color: rgb(255, 152, 61);
+  text-align: center;
+  border-radius: 20px;
+  text-transform: uppercase ;
+}
