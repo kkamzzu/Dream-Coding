@@ -119,3 +119,30 @@ command + shift + p (커멘드 팔렛 열기) => snippets검색 => configure use
 ```
 
 -> rfc,rsi : 단축으로 간편하게 만들 수 있음
+
+### box shadow site
+
+https://cssgenerator.org/box-shadow-css-generator.html
+
+## Making component
+
+- 이렇게 컴포넌트를 만들어 두면 외부상태와 연결되어있지않은 독립적인 컴포넌트가 완성됨.
+- 재사용 가능 언제든지 정의만 해줘도 여러개를 만들 수 있음.
+
+```js
+import React from "react";
+
+export default function Profile() {
+  return (
+    <div className="profile">
+      <img
+        className="phote"
+        src="https://images.unsplash.com/photo-1530281700549-e82e7bf110d6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8ZG9nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"
+        alt="avatar"
+      />
+      <h1>Joy</h1>
+      <p>친구네 강아지</p>
+    </div>
+  );
+}
+```
