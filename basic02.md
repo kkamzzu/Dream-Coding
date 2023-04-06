@@ -221,3 +221,33 @@ export default AppProfile;
 ```
 
 - 어려우면 개발자 툴에 리액트를 보면서 어떤 prop이 들어왔는지 확인하기
+
+## EVENT
+
+```js
+<button
+  onClick={(event) => {
+    console.log(event);
+    alert("버튼이 클릭됨");
+  }}
+>
+  click
+</button>
+```
+
+<!-- 둘다 가능 -->
+
+```js
+function AppProfile() {
+  const handleClick = (event) => {
+    console.log(event);
+    alert("버튼이 클릭됨");
+  };
+  return (
+    <>
+                  // 함수의 이름만 적어야지 호출하면 안됨.
+                  // ex) handelClick()
+      <button onClick={handleClick}>click</button>}
+```
+
+https://legacy.reactjs.org/docs/handling-events.html
