@@ -1,6 +1,4 @@
-import "./App.css";
-
-function App() {
+function AppJSX() {
   const name = "kkamzzu";
   const list = ["milk", "coffee", "banana", "tomato"];
   return (
@@ -20,4 +18,4 @@ function App() {
   );
 }
 
-export default App;
+export default AppJSX;

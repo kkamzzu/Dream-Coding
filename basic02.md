@@ -71,3 +71,51 @@ function App() {
   })}
 </ul>
 ```
+
+## JSX 유용한 사이트
+
+html코드를 JSX로 간편하게 변환해주는 사이트
+
+https://transform.tools/html-to-jsx
+
+- react component면 확장자를 `jsx`로 바꿔주기
+
+- 함수 앞에 `export`를 붙힐 수 있음.
+- 컴포넌트 이름을 두번 바꾸지 않아도 돼서 편함.
+
+```js
+export default function Profile() {
+  return <h1>Profile</h1>;
+}
+```
+
+### global.code-snippets 적용방법
+
+command + shift + p (커멘드 팔렛 열기) => snippets검색 => configure user sinppets => javascript.jsx => 아래 Json파일 붙여넣기
+
+```js
+{
+  "reactFunction": {
+    "prefix": "rfc",
+    "body": "import React from 'react';\n\nexport default function ${1:${TM_FILENAME_BASE}}() {\n\treturn (\n\t\t<div>\n\t\t\t\n\t\t</div>\n\t);\n}\n\n",
+    "description": "Creates a React Function component"
+  },
+  "reactStatelessImplicitReturn": {
+    "prefix": "rsi",
+    "body": "import React from 'react';\n\nexport const ${1:${TM_FILENAME_BASE}} = (props) => (\n\t\t\t$0\n\t);",
+    "description": "Creates a React Function component"
+  },
+  "Import Module CSS": {
+    "prefix": "si",
+    "body": ["import styles from './$TM_FILENAME_BASE.module.css'"],
+    "description": "Import PostCSS"
+  },
+  "ClassName": {
+    "prefix": "cn",
+    "body": ["className={styles.$1}"],
+    "description": "Adding className"
+  }
+}
+```
+
+-> rfc,rsi : 단축으로 간편하게 만들 수 있음
