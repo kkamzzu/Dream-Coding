@@ -17,6 +17,7 @@
 ```js
 function App() {
   const name = "kkamzzu";
+  const list = ["milk", "banana", "coffee", "yogurt"];
   return (
     <>
       <h1 className="orange">Hello</h1>
@@ -24,12 +25,49 @@ function App() {
       // 그냥 name이라고 쓰면 문자열로 인식함.
       <p>{name}</p>
       <ul>
-        <li>우유</li>
-        <li>딸기</li>
-        <li>바나나</li>
+        {list.map((item) => (
+          <li>{item}</li>
+        ))}
       </ul>
       <img style={{ width: "200px", height: "200px" }} src="https://images.unsplash.com/photo-1680484006397-64f3fcd8fc14?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2787&q=80 " />
     </>
   );
 }
+```
+
+- 자바스크립트 문법은 무조건 중괄호로 묶어줘야함.
+- 변수는 `${}`
+
+```js
+<h1 className="orange">{`Hello! ${name}`}</h1>
+```
+
+- item을 인자로 받아서 값을 바로 반환하기 때문에 중괄호와 리턴이 생략됨
+
+```js
+<ul>
+  {list.map((item) => (
+    <li>{item}</li>
+  ))}
+</ul>
+```
+
+- 만약 리턴을 생략하고 싶지 않다면..
+
+```js
+<ul>
+  {list.map((item) => {
+    return <li>{item}</li>;
+  })}
+</ul>
+```
+
+- 화살표 함수를 사용하지 않는다면..
+
+```js
+<ul>
+  {list.map(function (item) {
+    return <li>{item}</li>;
+  })}
+</ul>
 ```
