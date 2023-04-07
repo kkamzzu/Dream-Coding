@@ -286,3 +286,30 @@ const [count, setCount] = useState(0);
 - 가상의 Dom 요소를 사용해서 이전 Dom요소와 지금의 Dom요소에서 변경된 부분 즉 span만 업데이트 해줌.
 
 - 함수가 계속 호출되도 0으로 초기화 되지않는 이유는 유즈 스테이트 훅은 아무리 다시 호출해도 증가된 값을 기억함
+
+## UseState(2)
+
+- 리액트에서 상태를 사용할때는 일반변수 사용 안됨. -> useState 사용
+- 초기값 설정해주면 useState 호출했을때 베열이 전달됨.
+
+1. 첫 번째는 값을 가리키는 변수.
+2. 두 번재 업데이트 할 수 있는 함수.
+
+- 값을 설정해서 setCount틑 0 으로 지정할수 있고, 이전 상태값을 더하거나 빼거나
+- -> 기존의 스냅샷인 외부값에 의존하기보다는 콜백함수 형태로 set하는게 안전함.
+
+```js
+onClick={() => {
+          // 아무리 많이 setCount를 호출해도 카운트가 0으로 고정되어있어 무조건 0+1
+          // setCount(count + 1);
+          setCount((prev) => {
+            return prev + 1;
+          });
+          // same
+          //setCount가 호출될떄 이전 상탯값을 콜백인자로 전달받음. 리액트가 전달해줌
+          setCount((prev) => prev + 1);
+          setCount((prev) => prev + 1);
+          setCount((prev) => prev + 1);
+          setCount((prev) => prev + 1);
+        }}
+```
