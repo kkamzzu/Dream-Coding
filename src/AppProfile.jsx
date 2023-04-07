@@ -10,13 +10,6 @@ function AppProfile() {
   return (
     <>
       <button onClick={handleClick}>click</button>
-      <form
-        onSubmit={(e) => {
-          console.log(e);
-        }}
-      >
-        <input />
-      </form>
       {/* Avatar만 별도로 사용가능 */}
       <Avatar
         image="https://images.unsplash.com/photo-1530281700549-e82e7bf110d6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=776&q=80"

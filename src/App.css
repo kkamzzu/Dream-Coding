@@ -37,15 +37,28 @@
 
 .container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+}
+
+.banner {
+  background-color: pink;
+  height: 50px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
 }
 
 .counter {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 2rem;
-  padding: 1rem;
+  margin: 20px;
+  padding: 20px 50px;
   border-radius: 1rem;
   border: 2px solid rgb(255, 152, 61);
 }
@@ -56,6 +69,7 @@
 
 .number {
   font-size: 7rem;
+  margin: 0;
 }
 
 .button {
@@ -71,4 +85,9 @@
     rgba(253,220,29,1)100%
   
     );
+}
+
+.total {
+  font-size: 1rem;
+  margin-left: -1.5rem;
 }
