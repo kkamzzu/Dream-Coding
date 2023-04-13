@@ -59,12 +59,14 @@
   align-items: center;
   margin: 20px;
   padding: 20px 50px;
+  width: 150px;
   border-radius: 1rem;
   border: 2px solid rgb(255, 152, 61);
 }
 
 .counter:hover {
   background-color: antiquewhite;
+
 }
 
 .number {

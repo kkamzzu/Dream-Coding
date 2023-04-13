@@ -313,3 +313,65 @@ onClick={() => {
           setCount((prev) => prev + 1);
         }}
 ```
+
+## useEffect
+
+- fetch(상대경로로 접근할 수 있음.)
+- fetch = 비동기 -> fetch를 잘 받아온다면 response로 받아서 response를 json 형태로 변환해줘야함.
+- 이것까지 잘된다면 우리가 원하는 데이터 아이템이 들어옴.
+- 잘 받았는지 확인하려면 console.log() -> 무한대로 패치가 나옴.(성능에 큰 문제가 생김)
+- useState([])함수가 실행되면서 스테이트를 초기화
+- 네트워크를 받아오면 setProducts(data)이용해서 상태를 업데이트 해줌
+- 그럼 리액트가 상태가 변경된 컴포넌트의 함수를 리액트가 다시 호출하기 때문.
+
+`무한루프에 빠지지 않으려면 컴포넌트가 보여질때 딱 첫번째만 받아야함 그뒤로는 네트워크를 요청하지 않게 해야함 -> 그게 바로 useEffect!`
+
+```js
+import React, { useState } from "react";
+
+export default function Products() {
+  const [count, setCount] = useState(0);
+  const [products, setProducts] = useState([]);
+
+  fetch("data/products.json")
+    .then((res) => res.json())
+    .then((data) => {
+      console.log("뜨끈한 데이터 네트워크에서 받아옴");
+      setProducts(data);
+    });
+  return (
+    <>
+      <ul>
+        {products.map((products) => (
+          <li key={products.id}>
+            <article>
+              <h3>{products.name}</h3>
+              <p>{products.price}</p>
+            </article>
+          </li>
+        ))}
+      </ul>
+      <button onClick={() => setCount((prev) => prev + 1)}>{count}</button>
+    </>
+  );
+}
+```
+
+```js
+// 우리가 원하는 함수를 여기 넣으면 됨
+// 콜백함수를 전달할것.
+useEffect(() => {
+  fetch("data/products.json")
+    .then((res) => res.json())
+    .then((data) => {
+      console.log("뜨끈한 데이터 네트워크에서 받아옴");
+      setProducts(data);
+    });
+  return () => {
+    console.log("깨끗하게 청소하는 일들을 합니다");
+  };
+}, []);
+// 텅텅빈 배열을 전달하면 아무런 디팬던씨가 전달되지 않고,
+// 컴포넌트가 첨 보여질때만 useEffect에 등록된 콜백함수가 호출됨.
+// 딱 한번만 데이터를 받고싶으면 텅빈 배열을 넣어줘.
+```
