@@ -47,3 +47,16 @@ return (
 // 그 중에 x만 원하는 값으로 변경할 것이라면
 setPosition((prev) => ({ ...prev, x: e.clientX }));
 ```
+
+## 중첩된 객체
+
+```js
+const [person, setPerson] = useState({
+    name: "엘리",
+    title: "개발자",
+    // 중첩된 객체
+    mentor: {
+      name: "밥",
+      title: "시니어개발자",
+    },
+```
