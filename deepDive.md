@@ -52,11 +52,36 @@ setPosition((prev) => ({ ...prev, x: e.clientX }));
 
 ```js
 const [person, setPerson] = useState({
-    name: "엘리",
-    title: "개발자",
-    // 중첩된 객체
-    mentor: {
-      name: "밥",
-      title: "시니어개발자",
-    },
+  name: "엘리",
+  title: "개발자",
+  // 중첩된 객체
+  mentor: {
+    name: "밥",
+    title: "시니어개발자",
+  },
+});
+```
+
+- spread 연산자 이용해서 업데이트하기
+
+```js
+import React, { useState } from "react";
+
+const obj = {
+  name: "kkamzzu",
+  title: "swimmer",
+  mentor: {
+    name: "barnes",
+    title: "constructor",
+  },
+};
+
+const name = "업데이트 이름";
+const update = {
+  ...obj,
+  // 덮어씌워주기 가능, 이름만 업데이트
+  // name: name -> 축약가능
+  menter: { ...obj.mentor, name: name },
+};
+//
 ```
